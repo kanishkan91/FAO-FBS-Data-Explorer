@@ -138,7 +138,7 @@ svg1.append("g")
     .attr("y1", "100%");
 
 
-d3.json("/get-data", function(error, root) {
+d3.json("http://127.0.0.1:5000/get-data", function(error, root) {
   //if (error) throw error;
   
   partition.nodes(root);
@@ -371,7 +371,7 @@ svg1.append("g")
     .attr("y1", "100%");
 
 
-d3.json("/get-loss-data", function(error, root) {
+d3.json("http://127.0.0.1:5000/get-loss-data", function(error, root) {
   //if (error) throw error;
   
   partition.nodes(root);
