@@ -33,9 +33,9 @@ def homepage():
 def returnProdData():
    df=pd.read_csv('CropsFull.csv')
    CountryName = data.CountryName
-   print(CountryName)
+   data.CountryName=CountryName
    Year = data.Year
-   print(Year)
+   data.Year=Year
 
 # choose columns to keep, in the desired nested json hierarchical order
    df=df[df.Country==CountryName]
