@@ -30,7 +30,7 @@ def homepage():
 
 @app.route("/get-data",methods=["GET","POST"])
 def returnProdData():
-   df=pd.read_excel(r'C:\Users\Public\Pythonfiles\CropsFull.xlsx')
+   df=pd.read_excel('CropsFull.xlsx')
    CountryName = data.CountryName
    print(CountryName)
    Year = data.Year
@@ -83,7 +83,7 @@ def returnProdData():
 
 @app.route("/get-loss-data",methods=["GET","POST"])
 def returnLossData():
-   df=pd.read_excel(r'C:\Users\Public\Pythonfiles\Losses.xlsx')
+   df=pd.read_excel('Losses.xlsx')
    CountryName = data.CountryName
    print(CountryName)
    Year = data.Year
