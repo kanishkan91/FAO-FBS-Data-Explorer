@@ -18,7 +18,7 @@ data=DataStore()
 
 @application.route("/main",methods=["GET","POST"])
 
-@application.route("/get-data",methods=["GET","POST"])
+@application.route("/",methods=["GET","POST"])
 def homepage():
     CountryName = request.form.get('Country_field','India')
     print(CountryName)
