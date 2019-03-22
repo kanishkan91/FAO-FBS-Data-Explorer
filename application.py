@@ -7,8 +7,8 @@ import json
 
 
 
-app= Flask(__name__)
-application=app.server
+application= Flask(__name__)
+
 
 class DataStore():
     CountryName=None
@@ -16,9 +16,9 @@ class DataStore():
 data=DataStore()
 
 
-@app.route("/main",methods=["GET","POST"])
+@application.route("/main",methods=["GET","POST"])
 
-@app.route("/",methods=["GET","POST"])
+@application.route("/",methods=["GET","POST"])
 def homepage():
     CountryName = request.form.get('Country_field','India')
     print(CountryName)
@@ -29,7 +29,7 @@ def homepage():
     return render_template("index.html",CountryName=CountryName,Year=Year)
 
 
-@app.route("/get-data",methods=["GET","POST"])
+@application.route("/get-data",methods=["GET","POST"])
 def returnProdData():
    df=pd.read_excel('CropsFull.xlsx')
    CountryName = data.CountryName
@@ -82,7 +82,7 @@ def returnProdData():
    return jsonify(f)
 # export the final result to a json file
 
-@app.route("/get-loss-data",methods=["GET","POST"])
+@application.route("/get-loss-data",methods=["GET","POST"])
 def returnLossData():
    df=pd.read_excel('Losses.xlsx')
    CountryName = data.CountryName
@@ -136,7 +136,7 @@ def returnLossData():
 
 
 if __name__ == "__main__":
-    application.run_server(debug=True)
+    application.run(debug=True)
 
 
 
