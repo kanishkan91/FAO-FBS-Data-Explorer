@@ -34,7 +34,7 @@ def returnProdData():
    df=pd.read_csv('CropsFull.csv')
    CountryName = data.CountryName
    data.CountryName=CountryName
-   Year = data.Year
+   Year = request.form.get('Year_field', 2013)
    data.Year=Year
 
 # choose columns to keep, in the desired nested json hierarchical order
@@ -85,9 +85,9 @@ def returnProdData():
 @application.route("/get-loss-data",methods=["GET","POST"])
 def returnLossData():
    df=pd.read_csv('Losses.csv')
-   CountryName = data.CountryName
+   CountryName = request.form.get('Country_field','India')
    print(CountryName)
-   Year = data.Year
+   Year = request.form.get('Year_field', 2013)
    print(Year)
 
 # choose columns to keep, in the desired nested json hierarchical order
