@@ -8,6 +8,7 @@ import json
 
 
 app= Flask(__name__)
+application=app.server
 
 class DataStore():
     CountryName=None
@@ -135,7 +136,7 @@ def returnLossData():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run_server(debug=True)
 
 
 
