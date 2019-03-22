@@ -21,7 +21,7 @@ data=DataStore()
 @application.route("/",methods=["GET","POST"])
 def homepage():
     CountryName = request.form.get('Country_field','India')
-    print(CountryName)
+    
     Year = request.form.get('Year_field', 2013)
     data.CountryName=CountryName
     data.Year=Year
@@ -40,7 +40,7 @@ def returnProdData():
 # choose columns to keep, in the desired nested json hierarchical order
    df=df[df.Country==CountryName]
    df=df[df.Year== int(Year)]
-   print(df.head())
+   
    #df = df.drop(
        #['Country', 'Item Code', 'Flag', 'Unit', 'Year Code', 'Element', 'Element Code', 'Code', 'Item'], axis=1)
    df = df[["Category", "Cat", "value"]]
@@ -78,7 +78,7 @@ def returnProdData():
    flare = d
    e= json.dumps(flare)
    f= json.loads(e)
-   print(f)
+   
    return jsonify(f)
 # export the final result to a json file
 
@@ -93,7 +93,7 @@ def returnLossData():
 # choose columns to keep, in the desired nested json hierarchical order
    df=df[df.Country==CountryName]
    df=df[df.Year== int(Year)]
-   print(df.head())
+   
    #df = df.drop(
        #['Country', 'Item Code', 'Flag', 'Unit', 'Year Code', 'Element', 'Element Code', 'Code', 'Item'], axis=1)
    df = df[["Category", "Cat", "value"]]
@@ -131,7 +131,7 @@ def returnLossData():
    flare = d
    e= json.dumps(flare)
    g= json.loads(e)
-   print(g)
+   
    return jsonify(g)
 
 
