@@ -3,12 +3,13 @@ import pandas as pd
 
 import json
 
-#dfP=pd.read_excel(r'C:\Users\Public\Pythonfiles\CropsFull.xlsx')
 
 
 
+#1. Declare application
 application= Flask(__name__)
 
+#2. Declare data stores
 class DataStore():
     CountryName=None
     Year=None
@@ -19,18 +20,19 @@ data=DataStore()
 
 @application.route("/main",methods=["GET","POST"])
 
+#3. Define main code
 @application.route("/",methods=["GET","POST"])
 def homepage():
     CountryName = request.form.get('Country_field','India')
-    print(CountryName)
     Year = request.form.get('Year_field', 2013)
+    
     data.CountryName=CountryName
     data.Year=Year
+    
     df = pd.read_csv('CropsFull.csv')
     # dfP=dfP
-    CountryName = data.CountryName
-    data.CountryName = CountryName
-
+    
+    
     # print(CountryName)
     #Year = data.Year
     #data.Year = Year
@@ -75,6 +77,8 @@ def homepage():
     data.Prod = json.loads(e)
     Prod=data.Prod
 
+    
+    #Define code for loss data
     df = pd.read_csv('Losses.csv')
     #CountryName = data.CountryName
     #print(CountryName)
